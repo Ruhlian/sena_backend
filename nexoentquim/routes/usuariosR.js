@@ -1,20 +1,17 @@
-// routes/usuariosR.js
 const express = require('express');
 const router = express.Router();
-const usuarioController = require('../controllers/usuariosC'); // Asegúrate de que esta ruta sea correcta
+const { getAllUsers, login, register, deleteUserById } = require('../controllers/usuariosC');
 
 // Ruta para obtener todos los usuarios
-router.get('/', usuarioController.getAllUsers);
+router.get('/', getAllUsers);
 
 // Ruta para iniciar sesión
-router.post('/login', usuarioController.login);
+router.post('/login', login);
 
 // Ruta para registrar un nuevo usuario
-router.post('/register', usuarioController.register);
+router.post('/register', register);
 
-// Ruta para eliminar un usuario por ID
-router.delete('/:id', usuarioController.deleteUserById);
-
-// Otras rutas adicionales pueden ser añadidas aquí según sea necesario
+// Ruta para eliminar un usuario
+router.delete('/:id', deleteUserById);
 
 module.exports = router;

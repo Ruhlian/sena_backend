@@ -34,6 +34,7 @@ npm install react-router-dom
 npm install axios
 npm install react-toastify
 npm install react-icons
+npm install dotenv
 
 
  Iniciar proyecto
@@ -55,11 +56,26 @@ npm install mysql2
 npm install express-validator
 
 para hacer peticiones en postman para probar api
-http://localhost:3002/api/usuarios/registre
+http://localhost:3002/api/usuarios/register
 
+
+{
+    "nombre": "Joan",
+    "apellido": "Fontechaa",
     "correo": "joaaan.fontechaa@gmail.com",
-    "contrasena": "1028482746?Joan"
+    "contrasena": "1028482746?Joan",
+    "ID_Rol": 1  // Asumiendo que este es un valor válido o puedes omitirlo para usar el valor por defecto
+}
+
+Los ID varian, 1 = Admin, 2 = Empleado y 3 = Cliente "este es por defecto"
+
+{
+    "nombre": "Cliente",
+    "apellido": "Prueba",
+    "correo": "Clienteprueba@gmail.com",
+    "contrasena": "1234567890?Cliente"
+}
 
 Solo es modificar el frontend para que se pueda iniciar bien sesion en el proyecto
-hace CRUD solo de usuarios, maneja roles de administradir, cliente y empleado, solo he avaznado hasta el login y registro
+hace CRUD solo de usuarios, maneja roles de administrador, cliente y empleado, solo he avaznado hasta el login y registro
 algun cambio o sugerencia a mi primero

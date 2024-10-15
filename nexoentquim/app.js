@@ -1,13 +1,18 @@
-// app.js
 const express = require('express');
 const cors = require('cors');
-const app = express();
 const usuariosR = require('./routes/usuariosR'); // Asegúrate de que esta ruta sea correcta
-require('dotenv').config(); // Asegúrate de requerir dotenv para usar las variables de entorno
+require('dotenv').config(); // Cargar las variables de entorno
+
+// Imprimir el valor de JWT_SECRET para verificar que se está cargando correctamente
+console.log('JWT_SECRET:', process.env.JWT_SECRET); 
+
+const app = express(); // Crear la aplicación Express
 
 app.use(cors()); // Permitir CORS
 app.use(express.json()); // Analizar cuerpos JSON
-app.use('/api/usuarios', usuariosR); // Usar rutas de usuarios
+
+// Usar rutas de usuarios
+app.use('/api/usuarios', usuariosR); // Esta línea debe estar bien
 
 // Manejo de errores
 app.use((err, req, res, next) => {
@@ -15,6 +20,7 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Algo salió mal!' });
 });
 
+// Configurar el puerto
 const PORT = process.env.PORT || 3002; // Puedes usar una variable de entorno para el puerto
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
